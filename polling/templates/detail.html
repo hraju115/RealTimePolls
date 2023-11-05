@@ -51,6 +51,15 @@
 
     // Send the vote message to the WebSocket
     socket.send(JSON.stringify(message));
+
+    // Show a success message
+    const successMessage = document.getElementById('success-message');
+    successMessage.innerHTML = 'Vote successfully cast!';
+    successMessage.classList.remove('hidden');
+    setTimeout(() => {
+      successMessage.innerHTML = '';
+      successMessage.classList.add('hidden');
+    }, 5000); // Display the success message for 5 seconds
   });
 
   socket.onmessage = function (event) {
@@ -69,15 +78,6 @@
         choiceElement.innerHTML = `${newVoteCount}`;
         totalVotesElement.innerHTML = `${totalVotes}`;
       }
-
-      // Show a success message
-      const successMessage = document.getElementById('success-message');
-      successMessage.innerHTML = 'Vote successfully cast!';
-      successMessage.classList.remove('hidden');
-      setTimeout(() => {
-        successMessage.innerHTML = '';
-        successMessage.classList.add('hidden');
-      }, 5000); // Display the success message for 5 seconds
     }
   };
 
