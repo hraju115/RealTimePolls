@@ -1,0 +1,294 @@
+[
+    {
+        "model": "polling.poll",
+        "pk": 1,
+        "fields": {
+            "question": "What's your favorite color?",
+            "pub_date": "2023-08-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "polling.poll",
+        "pk": 2,
+        "fields": {
+            "question": "What are your plans for the weekend?",
+            "pub_date": "2023-08-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "polling.poll",
+        "pk": 3,
+        "fields": {
+            "question": "Which type of cuisine do you prefer?",
+            "pub_date": "2023-08-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "polling.poll",
+        "pk": 4,
+        "fields": {
+            "question": "Which travel destination is on your bucket list?",
+            "pub_date": "2023-08-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "polling.poll",
+        "pk": 5,
+        "fields": {
+            "question": "What's your favorite programming language?",
+            "pub_date": "2023-08-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 1,
+        "fields": {
+            "poll": 1,
+            "choice_text": "Blue",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 2,
+        "fields": {
+            "poll": 1,
+            "choice_text": "Red",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 3,
+        "fields": {
+            "poll": 1,
+            "choice_text": "Green",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 4,
+        "fields": {
+            "poll": 1,
+            "choice_text": "Yellow",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 5,
+        "fields": {
+            "poll": 1,
+            "choice_text": "Other",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 6,
+        "fields": {
+            "poll": 2,
+            "choice_text": "Going to the movies",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 7,
+        "fields": {
+            "poll": 2,
+            "choice_text": "Exploring a new hiking trail",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 8,
+        "fields": {
+            "poll": 2,
+            "choice_text": "Relaxing at home",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 9,
+        "fields": {
+            "poll": 2,
+            "choice_text": "Attending a friend's party",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 10,
+        "fields": {
+            "poll": 2,
+            "choice_text": "Other",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 11,
+        "fields": {
+            "poll": 3,
+            "choice_text": "Italian",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 12,
+        "fields": {
+            "poll": 3,
+            "choice_text": "Mexican",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 13,
+        "fields": {
+            "poll": 3,
+            "choice_text": "Asian",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 14,
+        "fields": {
+            "poll": 3,
+            "choice_text": "American",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 15,
+        "fields": {
+            "poll": 3,
+            "choice_text": "Middle Eastern",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 16,
+        "fields": {
+            "poll": 3,
+            "choice_text": "Other",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 17,
+        "fields": {
+            "poll": 4,
+            "choice_text": "Paris, France",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 18,
+        "fields": {
+            "poll": 4,
+            "choice_text": "Tokyo, Japan",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 19,
+        "fields": {
+            "poll": 4,
+            "choice_text": "New York City, USA",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 20,
+        "fields": {
+            "poll": 4,
+            "choice_text": "Sydney, Australia",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 21,
+        "fields": {
+            "poll": 4,
+            "choice_text": "Rome, Italy",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 22,
+        "fields": {
+            "poll": 4,
+            "choice_text": "Other",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 23,
+        "fields": {
+            "poll": 5,
+            "choice_text": "Python",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 24,
+        "fields": {
+            "poll": 5,
+            "choice_text": "JavaScript",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 25,
+        "fields": {
+            "poll": 5,
+            "choice_text": "Java",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 26,
+        "fields": {
+            "poll": 5,
+            "choice_text": "C++",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 27,
+        "fields": {
+            "poll": 5,
+            "choice_text": "Ruby",
+            "votes": 0
+        }
+    },
+    {
+        "model": "polling.choice",
+        "pk": 28,
+        "fields": {
+            "poll": 5,
+            "choice_text": "Other",
+            "votes": 0
+        }
+    }
+]

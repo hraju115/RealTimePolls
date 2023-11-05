@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ poll.question }}{% endblock %}
+
+{% block content %}
+<h2>{{ poll.question }}</h2>
+<form id="vote-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div id="success-message" class="hidden"></div>
+  <button type="submit" id="vote-button">Vote</button>
+</form>
+{% if messages %}
+<div class="messages">
+  <ul class="messages-list">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+<div id="votes-count">Total votes: <span id="total-votes">{{ total_votes }}</span></div>
+<div id="vote-results">
+  <h3>Results:</h3>
+  <ul>
+    {% for choice in poll.choice_set.all %}
+    <li>{{ choice.choice_text }} - <span id="choice-{{ choice.id }}">{{ choice.votes }}</span> votes</li>
+    {% endfor %}
+  </ul>
+</div>
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const socket = new WebSocket(
+    'ws://' + window.location.host + '/ws/poll/{{ poll.id }}/'
+  );
+
+  const voteForm = document.getElementById('vote-form');
+  const voteButton = document.getElementById('vote-button');
+
+  voteForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(voteForm);
+
+    // Create a message to send to the WebSocket
+    const message = {
+      type: 'vote_cast',
+      choice_id: formData.get('choice'), // Extract the selected choice from the form
+    };
+
+    // Send the vote message to the WebSocket
+    socket.send(JSON.stringify(message));
+  });
+
+  socket.onmessage = function (event) {
+    const data = JSON.parse(event.data);
+    const messageType = data.type;
+
+    if (messageType === 'vote_update') {
+      const choiceId = data.choice_id;
+      const newVoteCount = data.votes;
+      const totalVotes = data.total_votes
+
+      // Update the vote count on the frontend
+      const choiceElement = document.getElementById(`choice-${choiceId}`);
+      const totalVotesElement = document.getElementById('total-votes');
+      if (choiceElement) {
+        choiceElement.innerHTML = `${newVoteCount}`;
+        totalVotesElement.innerHTML = `${totalVotes}`;
+      }
+
+      // Show a success message
+      const successMessage = document.getElementById('success-message');
+      successMessage.innerHTML = 'Vote successfully cast!';
+      successMessage.classList.remove('hidden');
+      setTimeout(() => {
+        successMessage.innerHTML = '';
+        successMessage.classList.add('hidden');
+      }, 5000); // Display the success message for 5 seconds
+    }
+  };
+
+</script>
+<script>
+  // Hide messages with the 'disappearing' tag after 5 seconds
+  const disappearingMessages = document.querySelectorAll('.messages');
+  console.log(disappearingMessages);
+  disappearingMessages.forEach(message => {
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 5000); // Adjust the delay (in milliseconds) as needed
+  });
+</script>
+{% endblock %}
